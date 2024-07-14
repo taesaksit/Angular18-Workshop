@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="alert alert-secondary">
+    <div class="input-group my-2">
+
+      <input type="text" class="form-control" id="topic" [formControl]="topic" >
+        <button class="btn btn-primary" (click)="onAddTopic()">
+            <i class="bi bi-plus-circle"> Add</i>
+        </button>
+    </div>
+
+  </div>
+
+
+
+  <div class="container">
+      <div class="row">
+        @for(topic of topics; track $index) {
+          <div class="col-md-3">
+            <div class="card my-2" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">TopicName: {{topic.topic}}</h5>
+                <hr>
+                <p class="card-text">click for read this topic...</p>
+                <button (click)="onSelectTopic(topic.id)" class="btn btn-success">
+                  <!-- {{topic.topic}} -->
+                  <!-- <i class="bi bi-door-open"></i> -->
+                   Read
+                </button>
+                <button class=" btn btn-danger ms-2 " (click)="onRemoveTopic(topic.id)"> 
+                  <i class="bi bi-x-circle-fill"></i>
+                </button>
+
+              </div>
+            </div>
+          </div>
+        }
+
+      </div>
+  </div>
+
+</div>

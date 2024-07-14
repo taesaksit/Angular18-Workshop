@@ -1,0 +1,36 @@
+<div class="mt-5 container ">
+    <div class="row shadow p-3">
+        <div class="col-md-12">
+            <div class="h3">Topic {{topicId}}</div>
+            <hr>
+            <div class="input-group my-2">
+                <input type="text" class="form-control" id="topic" [formControl]="todo">
+                <button class="btn btn-primary" (click)="onAddTodo()">
+                    <i class="bi bi-plus-circle"> Add</i>
+                </button>
+            </div>
+        </div>
+        <div class="col">
+            <ul class="list-group list-group-flush">
+                @for(todo of list; track $index){
+                <li class="list-group-item">
+
+                    @if(todo.status == true){
+                        <s>{{todo.topic}} </s>
+                        <button  (click)="onUpdateTodo(todo.id , todo.status)" class="btn btn-sm btn-secondary mx-2 "><i class="bi bi-arrow-counterclockwise"></i></button>
+                        
+
+                    }@else {
+                        <span>{{todo.topic}} </span>
+                        <button (click)="onUpdateTodo(todo.id , todo.status)" class="btn btn-sm btn-success mx-2"><i class="bi bi-check-circle"></i></button>
+                    }
+
+                </li>
+        
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
